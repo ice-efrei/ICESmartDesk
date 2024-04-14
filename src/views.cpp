@@ -123,3 +123,40 @@ void value_view(TFT_eSPI* tft, String top_string, String bottom_string, String v
 
     tft->drawSmoothArc(x, y, radius, inner_radius, start_angle, end_angle, fg_color, bg_color, arc_end);
 }
+
+void update_value_view(TFT_eSPI* tft, String value_string, String unit_string, float progress){
+    // draw 140x140 square at 50, 50
+
+    tft->fillRect(50, 50, 140, 140, TFT_ICE_DARK_BLUE);
+
+    tft->setTextColor(TFT_WHITE, TFT_ICE_DARK_BLUE);
+
+    tft->loadFont(POPPINS_REGULAR_20, LittleFS);
+    int string_width = tft->textWidth(unit_string);
+    tft->unloadFont();
+
+    tft->loadFont(POPPINS_BOLD_50, LittleFS);
+    string_width += tft->textWidth(value_string);
+    tft->setCursor(screen_width / 2 - (string_width / 2), 95);
+    tft->print(value_string);
+    tft->unloadFont();
+    tft->loadFont(POPPINS_REGULAR_20, LittleFS);
+    tft->println(unit_string);
+    tft->unloadFont();
+
+    uint16_t fg_color = TFT_WHITE;
+    uint16_t bg_color = TFT_ICE_DARK_BLUE;
+
+    int x = screen_width / 2, y = screen_height / 2;
+
+    int radius = 117;
+    uint8_t thickness = 4;
+    uint8_t inner_radius = radius - thickness;
+
+    uint16_t start_angle = 180;
+    uint16_t end_angle   = int(180 + 360.0 * progress) % 360;
+
+    bool arc_end = true;
+    tft->drawSmoothArc(x, y, radius, inner_radius, 0, 360, bg_color, bg_color, arc_end);
+    tft->drawSmoothArc(x, y, radius, inner_radius, start_angle, end_angle, fg_color, bg_color, arc_end);
+}

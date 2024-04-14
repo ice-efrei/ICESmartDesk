@@ -16,12 +16,14 @@ void setup() {
     tft.setRotation(2);
     setup_fonts();
     setup_home_assistant(&client);
+
+    value_view(&tft, "Neo 2", "Fan", home_assistant_entities[0][1], "", 0);
 }
 
 
 void loop() {
     if (home_assistant_entities[0][1] != home_assistant_entities[0][2]) {
-        value_view(&tft, "Neo 2", "Fan", home_assistant_entities[0][1], "", 0);
+        update_value_view(&tft, home_assistant_entities[0][1], "", 0);
         home_assistant_entities[0][2] = home_assistant_entities[0][1];
         Serial.print("State: ");
         Serial.println(home_assistant_entities[0][1]);

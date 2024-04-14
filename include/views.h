@@ -10,5 +10,6 @@
 void setup_fonts();
 void select_view(TFT_eSPI* tft, String top_string, String bottom_string, String* options, int option_size, int selected_option);
 void value_view(TFT_eSPI* tft, String top_string, String bottom_string, String value_string, String unit_string, float progress);
+void update_value_view(TFT_eSPI* tft, String value_string, String unit_string, float progress);
 
 #endif //ICESMARTDESK_VIEWS_H
