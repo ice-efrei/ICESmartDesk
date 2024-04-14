@@ -1,23 +1,15 @@
 #include <Arduino.h>
 
-#define POPPINS_BOLD_20 "PoppinsBold20"
-#define POPPINS_BOLD_50 "PoppinsBold50"
-#define POPPINS_REGULAR_20 "PoppinsRegular20"
-
-// Font files are stored in Flash FS
-#include <FS.h>
-#include <LittleFS.h>
-#define FlashFS LittleFS
-
 #include <SPI.h>
 #include <TFT_eSPI.h>       // Hardware-specific library
 
 #include "constants.h"
+#include "views.h"
 
 TFT_eSPI tft = TFT_eSPI();
 
 
-void setup(void) {
+void setup() {
 
     Serial.begin(250000);
 
@@ -43,14 +35,7 @@ void setup(void) {
     }
     else Serial.println("\nFonts found OK.");
 
-    tft.fillScreen(TFT_ICE_DARK_BLUE);
-    tft.setTextColor(TFT_WHITE, TFT_ICE_DARK_BLUE);
-    tft.loadFont(POPPINS_BOLD_20, LittleFS);
-    tft.setCursor(87, 15);
-    tft.println("Panda");
-    tft.setCursor(87, 205);
-    tft.println("Panda");
-    tft.unloadFont();
+    value_view(&tft, "Temp", "Neo 2", "41", "C", 0.75);
 }
 
 

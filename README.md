@@ -18,7 +18,7 @@ Il est intéressant de noter que les couleurs ne fonctionnement pas de la même 
 
 [The library could not display some color correctly · Bodmer TFT_eSPI · Discussion #2322](https://github.com/Bodmer/TFT_eSPI/discussions/2322)
 
-On peut aussi noter que notre écran fait 240 pixel par 240 pixel. À partir de ça, on peut simplement réutiliser les valeurs de figma pour simplement connaitre les coordonnées où placer les textes et autres éléments. e.g. texte du haut en x:87.25 y:10.
+On peut aussi noter que notre écran fait 240 pixel par 240 pixel. À partir de ça, on peut simplement réutiliser les valeurs de figma pour simplement connaitre les coordonnées où placer les textes et autres éléments. e.g. texte du haut en x:87.25 y:10 ou la barre sous le texte en y:41 de H:5 W:130 et R:3.
 
 ### Configurer https://github.com/Bodmer/TFT_eSPI
 
