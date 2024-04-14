@@ -7,6 +7,26 @@
 #include "constants.h"
 #include <TFT_eSPI.h>
 
+void setup_fonts(){
+    if (!LittleFS.begin()) {
+        Serial.println("Flash FS initialisation failed!");
+        while (1) yield(); // Stay here twiddling thumbs waiting
+    }
+    Serial.println("\nFlash FS available!");
+
+    bool font_missing = false;
+    if (!LittleFS.exists("/PoppinsBold20.vlw")) font_missing = true;
+    if (!LittleFS.exists("/PoppinsBold50.vlw")) font_missing = true;
+    if (!LittleFS.exists("/PoppinsRegular20.vlw")) font_missing = true;
+
+    if (font_missing)
+    {
+        Serial.println("\nFont missing in Flash FS, did you upload it?");
+        while(1) yield();
+    }
+    else Serial.println("\nFonts found OK.");
+}
+
 void top_bottom_text(TFT_eSPI* tft, String top_string, String bottom_string, String value_string){
     tft->setTextColor(TFT_WHITE, TFT_ICE_DARK_BLUE);
     tft->loadFont(POPPINS_BOLD_20, LittleFS);
