@@ -11,7 +11,7 @@ TFT_eSPI tft = TFT_eSPI();
 
 void setup() {
 
-    Serial.begin(250000);
+    Serial.begin(115200);
 
     tft.begin();
 
@@ -34,11 +34,15 @@ void setup() {
         while(1) yield();
     }
     else Serial.println("\nFonts found OK.");
+//    value_view(&tft, "Temp", "Neo 2", "41", "C", 0.75);
+//
+//    delay(5000);
 
-    value_view(&tft, "Temp", "Neo 2", "41", "C", 0.75);
+    select_view(&tft, "ICE", "Desk", new String[3]{"Option 1", "Option 2", "Option 3"}, 3, 1);
+
+//    delay(5000);
 }
 
 
 void loop() {
-
 }

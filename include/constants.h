@@ -19,4 +19,10 @@
 #define POPPINS_BOLD_50 "PoppinsBold50"
 #define POPPINS_REGULAR_20 "PoppinsRegular20"
 
+#define screen_width 240
+#define screen_height 240
+
+#define normal_font_height 20
+#define big_font_height 50
+
 #endif //ICESMARTDESK_CONSTANTS_H
