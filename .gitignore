@@ -1,3 +1,4 @@
 .pio
 .idea
 include/secrets.h
+./include/secrets.h
