@@ -1,19 +1,14 @@
 #include <Arduino.h>
-
-#include <SPI.h>
-#include <TFT_eSPI.h>       // Hardware-specific library
-
-#include "constants.h"
+#include <TFT_eSPI.h>
 #include "views.h"
 
 TFT_eSPI tft = TFT_eSPI();
-
 
 void setup() {
     Serial.begin(115200);
 
     tft.begin();
-    tft.setRotation(0);
+    tft.setRotation(2);
     setup_fonts();
 }
 
