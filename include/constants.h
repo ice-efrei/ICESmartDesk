@@ -25,7 +25,7 @@
 #define normal_font_height 20
 #define big_font_height 50
 
-#define home_assistant_ip "192.168.1.76"
+#define home_assistant_ip "192.168.0.108"
 #define home_assistant_port 8123
 #define home_assistant_path "/api/websocket"
 

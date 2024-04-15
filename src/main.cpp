@@ -23,12 +23,16 @@ void setup() {
 
 void loop() {
     if (home_assistant_entities[0][1] != home_assistant_entities[0][2]) {
-        update_value_view(&tft, home_assistant_entities[0][1], "", 0);
+        Serial.println("Updating View ------");
+        update_value_view(&tft, home_assistant_entities[0][1], home_assistant_entities[0][3], 0);
         home_assistant_entities[0][2] = home_assistant_entities[0][1];
         Serial.print("State: ");
         Serial.println(home_assistant_entities[0][1]);
         Serial.print("Old State: ");
         Serial.println(home_assistant_entities[0][2]);
+        Serial.print("Unit: ");
+        Serial.println(home_assistant_entities[0][3]);
+        Serial.println("--------------------");
     }
 
     if(client.available()) {
