@@ -206,16 +206,16 @@ void HandleStates() {
         case RUNBATCH : HandleStateBatch();
             break;
         case UP:
-            State.NextState = WAIT;
+            State.ActState = WAIT;
             break;
         case DOWN:
-            State.NextState = WAIT;
+            State.ActState = WAIT;
             break;
         case ENTER:
-            State.NextState = WAIT;
+            State.ActState = WAIT;
             break;
         case BACK:
-            State.NextState = WAIT;
+            State.ActState = WAIT;
             break;
         default :      State.ActState = WAIT;
             break;

@@ -37,6 +37,8 @@ void loop() {
 //        Serial.println("--------------------");
 //    }
 
+    HandleSerial();
+
     if (State.ActState == UP){
         selection++;
         if (selection > number_of_entities - 1) selection = 0;
@@ -49,7 +51,7 @@ void loop() {
         select_view(&tft, "ICE", "Desk", get_entities_names(), number_of_entities, selection);
     }
 
-    HandleSerial();
+    
     HandleStates();
 
     if(client.available()) {
