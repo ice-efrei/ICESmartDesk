@@ -70,7 +70,6 @@
 
 #include <Arduino.h>
 #include "serialinputs.h"
-#include "userinput.facade.h"
 
 // Global Variables
 State_Struct State;
@@ -129,7 +128,7 @@ void ChangeState() {
 }
 
 void InitStateMachine() {
-    State.ActState = "WAIT";
+    State.ActState = WAIT;
     State.NextState = UNKNOWN;
 }
 
@@ -207,24 +206,16 @@ void HandleStates() {
         case RUNBATCH : HandleStateBatch();
             break;
         case UP:
-            old_user_inputs[0] = user_inputs[0];
-            user_inputs[0] = true;
-            State.ActState = WAIT;
+            State.NextState = WAIT;
             break;
         case DOWN:
-            old_user_inputs[1] = user_inputs[1];
-            user_inputs[1] = true;
-            State.ActState = WAIT;
+            State.NextState = WAIT;
             break;
         case ENTER:
-            old_user_inputs[2] = user_inputs[2];
-            user_inputs[2] = true;
-            State.ActState = WAIT;
+            State.NextState = WAIT;
             break;
         case BACK:
-            old_user_inputs[3] = user_inputs[3];
-            user_inputs[3] = true;
-            State.ActState = WAIT;
+            State.NextState = WAIT;
             break;
         default :      State.ActState = WAIT;
             break;

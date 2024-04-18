@@ -9,16 +9,36 @@
 #include "secrets.h"
 #include "constants.h"
 
-const int number_of_entities = 1;
+const int number_of_entities = 3;
 
-String home_assistant_entities[1][4] = {
+String home_assistant_entities[number_of_entities][4] = {
         {
-                "sensor.esphome_web_4dced0_kobra_2_neo_room_temperature", // entity_id
+                "input_boolean.fan_neo_2", // entity_id
+                "0", // state
+                "0", // old state
+                "" // unit
+        },
+        {
+                "input_datetime.heure_paris", // entity_id
+                "0", // state
+                "0", // old state
+                "" // unit
+        },
+        {
+                "counter.print_count", // entity_id
                 "0", // state
                 "0", // old state
                 "" // unit
         },
 };
+
+String* get_entities_names(){
+    String* entities_names = new String[number_of_entities];
+    for(int i = 0; i < number_of_entities; i++){
+        entities_names[i] = home_assistant_entities[i][0];
+    }
+    return entities_names;
+}
 
 void setup_home_assistant(websockets::WebsocketsClient* client){
     WiFi.begin(ssid, password);
